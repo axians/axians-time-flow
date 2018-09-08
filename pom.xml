@@ -41,10 +41,10 @@
 
     <properties>
         <encoding>utf-8</encoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>10</maven.compiler.source>
+        <maven.compiler.target>10</maven.compiler.target>
         <jetty.version>9.3.7.v20160115</jetty.version>
-        <vaadin.version>10.0.2</vaadin.version>
+        <vaadin.version>11.0.0</vaadin.version>
         <moment.version>2.20.1</moment.version>
         <axians.time.version>0.2.2</axians.time.version>
     </properties>
