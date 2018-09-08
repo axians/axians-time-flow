@@ -6,7 +6,7 @@
 
     <groupId>it.axians.vaadin</groupId>
     <artifactId>axians-time-flow</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <url>https://git.axians.it/oss/axians-time-flow</url>
     <inceptionYear>2018</inceptionYear>
