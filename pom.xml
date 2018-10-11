@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>it.axians.vaadin</groupId>
+    <groupId>it.axians</groupId>
     <artifactId>axians-time-flow</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -44,8 +44,9 @@
         <maven.compiler.source>10</maven.compiler.source>
         <maven.compiler.target>10</maven.compiler.target>
         <jetty.version>9.3.7.v20160115</jetty.version>
-        <vaadin.version>11.0.0</vaadin.version>
+        <vaadin.version>12.0.0.alpha3</vaadin.version>
         <moment.version>2.20.1</moment.version>
+        <nexus.staging.version>1.6.8</nexus.staging.version>
         <axians.time.version>0.2.2</axians.time.version>
     </properties>
 
@@ -107,6 +108,17 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus.staging.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
