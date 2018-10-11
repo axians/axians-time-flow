@@ -48,6 +48,7 @@
         <moment.version>2.20.1</moment.version>
         <nexus.staging.version>1.6.8</nexus.staging.version>
         <axians.time.version>0.2.2</axians.time.version>
+        <clover.version>4.3.1</clover.version>
     </properties>
 
     <repositories>
@@ -108,6 +109,11 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.openclover</groupId>
+                <artifactId>clover-maven-plugin</artifactId>
+                <version>${clover.version}</version>
+            </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
