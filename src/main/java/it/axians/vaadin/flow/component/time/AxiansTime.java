@@ -15,6 +15,7 @@
 -*/
 package it.axians.vaadin.flow.component.time;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ public class AxiansTime extends PolymerTemplate<AxiansTime.Model>
      */
     public static class FormatStep implements JsonSerializable {
 
-        private int diff;
+        private long diff;
 
         private boolean relative;
 
@@ -55,24 +56,26 @@ public class AxiansTime extends PolymerTemplate<AxiansTime.Model>
         /**
          * Instantiates a new format step.
          *
-         * @param diff
-         *            the diff
+         * @param duration
+         *            the minimum amount of time between current time and
+         *            timestamp for which the format should be used
          * @param format
          *            the format
          */
-        public FormatStep(int diff, String format) {
-            this.diff = diff;
+        public FormatStep(Duration duration, String format) {
+            this.diff = duration.toMillis();
             this.format = format;
         }
 
         /**
          * Instantiates a new format step.
          *
-         * @param diff
-         *            the diff
+         * @param duration
+         *            the minimum amount of time between current time and
+         *            timestamp for which the display should be relative
          */
-        public FormatStep(int diff) {
-            this.diff = diff;
+        public FormatStep(Duration duration) {
+            this.diff = duration.toMillis();
             this.relative = true;
         }
 
@@ -371,7 +374,7 @@ public class AxiansTime extends PolymerTemplate<AxiansTime.Model>
         AtomicInteger index = new AtomicInteger();
         this.getElement().setPropertyJson("formatSteps",
                 formatSteps.stream().map(FormatStep::toJson).collect(
-                        () -> Json.createArray(),
+                        Json::createArray,
                         (arr, value) -> arr.set(index.getAndIncrement(), value),
                         (arr, arrOther) -> {
                             int startIndex = arr.length();
@@ -380,6 +383,16 @@ public class AxiansTime extends PolymerTemplate<AxiansTime.Model>
                                 arr.set(startIndex + i, value);
                             }
                         }));
+    }
+
+    /**
+     * Sets the format steps.
+     *
+     * @param formatSteps
+     *            the new format steps
+     */
+    public void setFormatSteps(FormatStep... formatSteps) {
+        this.setFormatSteps(List.of(formatSteps));
     }
 
 }

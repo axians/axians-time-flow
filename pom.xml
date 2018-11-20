@@ -51,16 +51,16 @@
 
     <properties>
         <encoding>utf-8</encoding>
-        <maven.compiler.source>10</maven.compiler.source>
-        <maven.compiler.target>10</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <maven.javadoc.version>3.0.1</maven.javadoc.version>
         <maven.source.version>3.0.1</maven.source.version>
         <maven.gpg.version>1.6</maven.gpg.version>
         <jetty.version>9.3.7.v20160115</jetty.version>
-        <vaadin.version>12.0.0.alpha3</vaadin.version>
+        <vaadin.version>12.0.0.beta2</vaadin.version>
         <moment.version>2.20.1</moment.version>
         <nexus.staging.version>1.6.8</nexus.staging.version>
-        <axians.time.version>0.2.2</axians.time.version>
+        <axians.time.version>1.0.0</axians.time.version>
         <clover.version>4.3.1</clover.version>
     </properties>
 
